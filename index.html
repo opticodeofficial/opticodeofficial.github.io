@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Opticode — Building the Future of Software</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f2f6ff;
+      --panel: #ffffff;
+      --muted: #4d4d4d;
+      --accent: #3f7bdc;
+      --card: rgba(0,0,0,0.04);
+      --glass: rgba(255,255,255,0.5);
+    }
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(180deg,#f2f6ff 0%, #e7efff 100%);
+      color:#222;
+      line-height:1.5;
+    }
+    a{color:var(--accent);text-decoration:none}
+    header{
+      position:sticky;top:0;z-index:40;
+      background:rgba(255,255,255,0.7);
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{font-weight:800;color:var(--accent);font-size:20px}
+    nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+    nav a{color:#333;font-weight:500;transition:.2s}
+    nav a.active{border-bottom:3px solid var(--accent);padding-bottom:6px}
+
+    .btn-quote{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700
+    }
+    .hero{text-align:center;padding:72px 0 56px}
+    .hero h1{font-size:72px;margin:10px 0 12px;color:#1b1b1b}
+    .hero p{max-width:880px;margin:24px auto;color:#555;font-size:18px}
+    .cta{background:var(--accent);color:#fff;padding:14px 28px;border-radius:12px;font-weight:700}
+    .section{padding:64px 0}
+    .section h2{text-align:center;font-size:36px;margin-bottom:8px;color:#222}
+    .sub-underline{
+      width:56px;height:6px;background:var(--accent);
+      border-radius:6px;margin:12px auto 36px
+    }
+    .services-grid, .projects-grid{display:grid;gap:24px}
+    .services-grid{grid-template-columns:repeat(4,1fr)}
+    .projects-grid{grid-template-columns:repeat(3,1fr)}
+
+    .card, .project{
+      background:#fff;
+      border-radius:12px;
+      padding:26px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+
+    .project .thumb{height:210px;background-size:cover;background-position:center;border-radius:12px}
+    .project .body{text-align:center}
+    .tags{display:flex;gap:8px;margin-top:12px;justify-content:center}
+    .tag{
+      background:rgba(63,123,220,0.1);
+      color:var(--accent);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px
+    }
+    .cta-block{
+      background:linear-gradient(90deg,#e8f0ff,#f2f6ff);
+      padding:56px 0;text-align:center;margin-top:36px
+    }
+    footer{
+      text-align:center;
+      background:#e7efff;
+      padding:24px 0;
+      border-top:1px solid rgba(0,0,0,0.05)
+    }
+
+    form{
+      max-width:480px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    input, textarea{
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:15px;
+    }
+    button{
+      background:var(--accent);
+      color:#fff;
+      padding:12px;
+      border-radius:10px;
+      font-size:16px;
+      border:none;
+      cursor:pointer;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll("nav a");
+
+      function activate() {
+        let pos = window.scrollY + 120;
+        sections.forEach(sec => {
+          if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+            navLinks.forEach(a => a.classList.remove("active"));
+            const link = document.querySelector("nav a[href='#" + sec.id + "']");
+            if (link) link.classList.add("active");
+          }
+        });
+      }
+
+      activate();
+      window.addEventListener("scroll", activate);
+
+      navLinks.forEach(a => {
+        a.addEventListener("click", () => {
+          navLinks.forEach(x => x.classList.remove("active"));
+          a.classList.add("active");
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand">Opticode</div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn-quote" href="#contact">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Opticode: Building the<br>Future of Software</h1>
+    <div class="sub-underline" style="width:80px"></div>
+    <p>We specialize in web and mobile applications that turn your ideas into powerful digital solutions.</p>
+    <a href="#contact" class="cta">Get a Quote →</a>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="sub-underline"></div>
+
+    <div class="services-grid">
+      <div class="card"><h3>Web Development</h3><p>High-quality, scalable web applications.</p></div>
+      <div class="card"><h3>Mobile App Development</h3><p>Modern apps for iOS and Android.</p></div>
+      <div class="card"><h3>UI/UX Design</h3><p>Beautiful and intuitive interfaces.</p></div>
+      <div class="card"><h3>Maintenance & Support</h3><p>Long-term reliability and updates.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <div class="sub-underline"></div>
+
+    <div class="projects-grid">
+      <div class="project">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519337265831-281ec6cc8514')"></div>
+        <div class="body">
+          <h3>E-commerce 'StyleHub'</h3>
+          <p>Secure & scalable online fashion store.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f')"></div>
+        <div class="body">
+          <h3>Healthcare 'MediConnect'</h3>
+          <p>Portal for appointments and records.</p>
+          <div class="tags"><span class="tag">Angular</span><span class="tag">Django</span></div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1551033406-611cf9b1e07b')"></div>
+        <div class="body">
+          <h3>Fintech 'WealthFlow'</h3>
+          <p>Investment tracking mobile app.</p>
+          <div class="tags"><span class="tag">React Native</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="container">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Let's build something amazing together.</p>
+    <a href="#contact" class="btn-quote">Get Started →</a>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h3>Contact</h3>
+    <p>Email: <strong>opticodeofficial@gmail.com</strong></p>
+
+    <h3 style="margin-top:32px">Enquiry Form</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  📩 opticodeofficial@gmail.com
+</footer>
+
+</body>
+</html>

@@ -12,8 +12,6 @@
       --panel: #ffffff;
       --muted: #4d4d4d;
       --accent: #3f7bdc;
-      --card: rgba(0,0,0,0.04);
-      --glass: rgba(255,255,255,0.5);
     }
     body{
       margin:0;
@@ -33,7 +31,7 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
     .brand{font-weight:800;color:var(--accent);font-size:20px}
     nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
-    nav a{color:#333;font-weight:500;transition:.2s}
+    nav a{color:#333;font-weight:500}
     nav a.active{border-bottom:3px solid var(--accent);padding-bottom:6px}
 
     .btn-quote{
@@ -44,20 +42,21 @@
       font-weight:700
     }
     .hero{text-align:center;padding:72px 0 56px}
-    .hero h1{font-size:72px;margin:10px 0 12px;color:#1b1b1b}
+    .hero h1{font-size:72px;margin:10px 0 12px}
     .hero p{max-width:880px;margin:24px auto;color:#555;font-size:18px}
     .cta{background:var(--accent);color:#fff;padding:14px 28px;border-radius:12px;font-weight:700}
+
     .section{padding:64px 0}
-    .section h2{text-align:center;font-size:36px;margin-bottom:8px;color:#222}
+    .section h2{text-align:center;font-size:36px;margin-bottom:8px}
     .sub-underline{
       width:56px;height:6px;background:var(--accent);
       border-radius:6px;margin:12px auto 36px
     }
-    .services-grid, .projects-grid{display:grid;gap:24px}
-    .services-grid{grid-template-columns:repeat(4,1fr)}
-    .projects-grid{grid-template-columns:repeat(3,1fr)}
 
-    .card, .project{
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+    .card,.project{
       background:#fff;
       border-radius:12px;
       padding:26px;
@@ -66,19 +65,12 @@
     }
 
     .project .thumb{height:210px;background-size:cover;background-position:center;border-radius:12px}
-    .project .body{text-align:center}
-    .tags{display:flex;gap:8px;margin-top:12px;justify-content:center}
-    .tag{
-      background:rgba(63,123,220,0.1);
-      color:var(--accent);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px
-    }
+
     .cta-block{
       background:linear-gradient(90deg,#e8f0ff,#f2f6ff);
       padding:56px 0;text-align:center;margin-top:36px
     }
+
     footer{
       text-align:center;
       background:#e7efff;
@@ -109,35 +101,6 @@
       cursor:pointer;
     }
   </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll("nav a");
-
-      function activate() {
-        let pos = window.scrollY + 120;
-        sections.forEach(sec => {
-          if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
-            navLinks.forEach(a => a.classList.remove("active"));
-            const link = document.querySelector("nav a[href='#" + sec.id + "']");
-            if (link) link.classList.add("active");
-          }
-        });
-      }
-
-      activate();
-      window.addEventListener("scroll", activate);
-
-      navLinks.forEach(a => {
-        a.addEventListener("click", () => {
-          navLinks.forEach(x => x.classList.remove("active"));
-          a.classList.add("active");
-        });
-      });
-    });
-  </script>
-
 </head>
 
 <body>
@@ -172,7 +135,6 @@
   <div class="container">
     <h2>Our Services</h2>
     <div class="sub-underline"></div>
-
     <div class="services-grid">
       <div class="card"><h3>Web Development</h3><p>High-quality, scalable web applications.</p></div>
       <div class="card"><h3>Mobile App Development</h3><p>Modern apps for iOS and Android.</p></div>
@@ -186,56 +148,42 @@
   <div class="container">
     <h2>Featured Projects</h2>
     <div class="sub-underline"></div>
-
     <div class="projects-grid">
       <div class="project">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1519337265831-281ec6cc8514')"></div>
-        <div class="body">
-          <h3>E-commerce 'StyleHub'</h3>
-          <p>Secure & scalable online fashion store.</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">Node.js</span></div>
-        </div>
+        <h3>E-commerce "StyleHub"</h3>
+        <p>Secure & scalable online fashion store.</p>
       </div>
-
       <div class="project">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f')"></div>
-        <div class="body">
-          <h3>Healthcare 'MediConnect'</h3>
-          <p>Portal for appointments and records.</p>
-          <div class="tags"><span class="tag">Angular</span><span class="tag">Django</span></div>
-        </div>
+        <h3>Healthcare "MediConnect"</h3>
+        <p>Portal for appointments and records.</p>
       </div>
-
       <div class="project">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1551033406-611cf9b1e07b')"></div>
-        <div class="body">
-          <h3>Fintech 'WealthFlow'</h3>
-          <p>Investment tracking mobile app.</p>
-          <div class="tags"><span class="tag">React Native</span></div>
-        </div>
+        <h3>Fintech "WealthFlow"</h3>
+        <p>Investment tracking mobile app.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-block">
-  <div class="container">
-    <h2>Ready to Start Your Project?</h2>
-    <p>Let's build something amazing together.</p>
-    <a href="#contact" class="btn-quote">Get Started →</a>
-  </div>
-</section>
-
 <section id="contact" class="section">
   <div class="container">
-    <h3>Contact</h3>
+    <h2>Contact</h2>
     <p>Email: <strong>opticodeofficial@gmail.com</strong></p>
 
     <h3 style="margin-top:32px">Enquiry Form</h3>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
+
+    <!-- MAILTO IMPLEMENTATION -->
+    <form action="mailto:opticodeofficial@gmail.com"
+          method="POST"
+          enctype="text/plain">
+
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="email" name="Email" placeholder="Your Email" required>
+      <textarea name="Message" rows="4" placeholder="Your Message"></textarea>
+
       <button type="submit">Submit</button>
     </form>
   </div>
